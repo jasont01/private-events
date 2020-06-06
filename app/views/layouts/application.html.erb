@@ -27,7 +27,7 @@
         </div>
       <% end %>
 
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
         <!-- Brand -->
         <%= link_to "Private Events", root_path, class: "navbar-brand" %> 
 
@@ -52,18 +52,19 @@
         </div>
 
         <% if user_signed_in? %>
+          <%= link_to "Create Event", new_event_path, class: "btn btn-success mr-4" %>
 
-        <form class="form-inline">
+        <div class="">
           <%= link_to current_user.username, edit_user_registration_path, class: "btn btn-info mr-2" %>
           <%= link_to "Logout", destroy_user_session_path,method: :delete, class: "btn btn btn-danger" %>
-        </form>
+        </div>
 
         <% else %>
 
-        <form class="form-inline">
+        <div>
           <%= link_to "Sign In", new_user_session_path, class: "btn btn-info mr-2" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "btn btn btn-success" %>
-        </form>
+        </div>
 
         <% end %>
       </nav>
@@ -76,3 +77,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<!--TODO add close button/js timeout to alerts-->
+<!--TODO add footer-->

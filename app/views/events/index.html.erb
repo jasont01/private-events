@@ -1,0 +1,38 @@
+<div class="row p-sm-5">
+
+  <div class="col-4">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione praesentium fugiat quas aspernatur atque, aperiam iste assumenda, magnam quasi sed alias minima eveniet expedita minus voluptatibus cupiditate. Officia doloremque, qui laborum voluptates odio perspiciatis officiis? Neque molestiae debitis eaque delectus perferendis officiis dignissimos aliquam aspernatur, iste assumenda, suscipit eos voluptatibus!</p>
+  </div>
+
+  <div class="col-4">
+    <h2>Upcomming Events</h2>
+    <% @future_events.each do |event| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to event.event_name, event_path(event) %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">created by <%= link_to event.user.username, user_path(event.user) %></h6>
+          <p style="float:right;">When: <%= event.date %></p>
+          <p>Location: <%= event.location %></p>
+          <p class="card-text"><%= event.description %></p>
+          <a href="#" class="card-link">Sign Up</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-4">
+    <h2>Past Events</h2>
+    <% @past_events.each do |event| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to event.event_name, event_path(event) %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">created by <%= link_to event.user.username, user_path(event.user) %></h6>
+          <p style="float:right;">When: <%= event.date %></p>
+          <p>Location: <%= event.location %></p>
+          <p class="card-text"><%= event.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

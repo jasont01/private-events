@@ -1,0 +1,28 @@
+<div class="row text-center justify-content-center">
+  <div class="col-sm-3 my-5">
+    <%= simple_form_for @event do |f| %>
+      <h1 class="h3 mb-3 font-weight-normal">New Event</h1>
+      <%= f.input :event_name,
+                  required: true,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "event_name", class: "form-control", placeholder: "Event Name" } %>
+      <%= f.input :description,
+                  required: true,
+                  label: false,
+                  input_html: { autocomplete: "description", class: "form-control", placeholder: "Describe your event" } %>
+      <%= f.input :location,
+                  required: true,
+                  label: false,
+                  input_html: { autocomplete: "location", class: "form-control", placeholder: "Event Location" } %>
+      <%= f.input :date,
+                  required: false,
+                  label: false,
+                  input_html: { autocomplete: "date", class: "form-control" } %>
+      <%= f.button :submit, "Create", class: "btn btn-lg btn-primary btn-block" %>
+    <% end %>
+  </div>
+</div>
+ID:<%= @event.creator_id %>
+<!--TODO add invites-->
+<!--TODO add event desc-->
