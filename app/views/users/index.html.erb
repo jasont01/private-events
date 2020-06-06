@@ -1,9 +1,27 @@
-<h2>All Users</h2>
+<div class="row p-sm-5">
 
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.username, user_path(user) %>
-    </li>
-  <% end %>
-</ul>
+  <div class="col-sm-2 col-xl-4">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus explicabo saepe exercitationem sit molestias dolore quisquam fuga odio odit, quasi, nemo aspernatur provident minima modi quam eum hic neque fugiat voluptatibus.</p>
+  </div>
+  
+  <div class="col-sm-4 col-xl-5">
+    <p>if signed_in?, show create event button</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ut ad placeat distinctio aperiam illo magni assumenda quos inventore sunt.</p>
+  </div>
+
+  <div class="col-sm-6 col-xl-3">
+
+    <h4>Members</h4>
+    <p class="text-right"><small>Upcomming Events</small></p>
+    <ul class="list-group my-4">
+      <% @users.each do |user| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= link_to user.username, user_path(user) %>
+          <span class="badge badge-primary badge-pill"><%= user.events.count %></span>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+
+</div>
