@@ -4,7 +4,12 @@
     <h1><%= @event.event_name %></h1>
     <p>Where: <%= @event.location %></p>
     <p>When: <%= @event.date %></p>
+    <p>Attendees: </p>
+    <% @event.attendees.each do |attendee| %>
+    <%= attendee.username %>
+    <% end %>
 
+    <%= %>
   </div>
 </div>
 
