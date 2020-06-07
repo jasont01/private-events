@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit]
 
   def index
     @users = User.all
@@ -23,8 +23,10 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @future_events = @user.events.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
-    @past_events = @user.events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
+    #@future_events = @user.events.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
+    @future_events = current_user.future_events
+    #@past_events = @user.events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
+    @past_events = current_user.past_events
   end
 
   private

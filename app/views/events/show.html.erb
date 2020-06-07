@@ -9,7 +9,11 @@
     <%= attendee.username %>
     <% end %>
 
-    <%= %>
+    <%= form_with(url: "/invitations", method: "post") do %>
+      <%= hidden_field_tag(:user_id, @user.id) %>
+      <%= hidden_field_tag(:event_id, @event.id) %>
+      <%= submit_tag("Sign Up") %>
+    <% end %>
   </div>
 </div>
 

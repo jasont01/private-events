@@ -3,12 +3,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    @future_events = @events.where("DATE(date) >= DATE(?)", Time.now).order("date ASC")
-    @past_events = @events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
   end
   
   def show
     @event = Event.find(params[:id])
+    @user = current_user
   end
   
   def new
