@@ -21,3 +21,5 @@
 This is a project from the Ruby on Rails course in The Odin Project's curriculum.<br />
 This project focuses on building multiple 'Many-to-Many' associations using ActiveRecord in Ruby on Rails.<br />
 A link to the full description of the assignment can be found above.
+
+Live version: <a href="https://secret-coast-99413.herokuapp.com/">heroku</a>
