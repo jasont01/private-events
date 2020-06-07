@@ -1,10 +1,16 @@
 
+<%= render "github" %>
+
 <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <h1 class="display-4">Private Events</h1>
+  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde quisquam alias molestiae rerum molestias cum eveniet quia, aliquid sint beatae, deserunt repellendus eos laudantium itaque accusantium error incidunt est eum.</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <% if user_signed_in? %>
   <a class="btn btn-primary btn-lg" href="/events" role="button">Events</a>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+  <% end %>
 </div>
 
 

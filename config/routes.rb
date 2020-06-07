@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   resources :invitations
+  get 'past_events', to: 'events#past'
 end

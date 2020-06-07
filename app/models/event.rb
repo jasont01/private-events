@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :attendees, through: :invitations, source: :attendee
 
   def self.future
-    Event.all.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
+    Event.all.where("DATE(date) >= DATE(?)", Time.now).order("date ASC")
   end
 
   def self.past

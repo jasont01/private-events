@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @future_events = Event.all.where("DATE(date) >= DATE(?)", Time.now).order("date ASC")
+    @future_events = Event.future
   end
 
   def new
@@ -23,10 +23,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    #@future_events = @user.events.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
-    @future_events = current_user.future_events
-    #@past_events = @user.events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
-    @past_events = current_user.past_events
+    @future_events = @user.future_events
+    @past_events = @user.past_events
   end
 
   private
