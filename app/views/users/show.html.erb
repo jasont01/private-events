@@ -1,45 +1,52 @@
 <div class="row">
 
-  <div class="col m-5">
-    <h1><%= @user.name %></h1>
-    <p>Username: <%= @user.username %></p>
-    <p>Email: <%= @user.email %></p>
-    <p>Events Created: <%= @user.events.count %></p>
-  </div>
-
-  <div class="col m-5">
-    <h2>Attended Events</h2>
-    <ul class="list-group my-4">
-      <% @user.attended_events.each do |event| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+  <div class="col-lg">
+    <div class="card">
+      <div class="card-body">
+      <div class="col-4">
+      <%= image_tag "round-profile-image-placeholder.png", size: "80x80" %>
+      </div>
+      <div class="col-8">
+        <h3 class="card-title"><%= @user.name %></h3>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @user.username %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
+        <p><%= link_to "edit profile", edit_user_registration_path %></p>
+      </div>
+      </div>
+    </div>
+  
+    <h4 class="mt-3">Created Events(<%= @user.events.count %>)</h4>
+    <ul class="list-group">
+      <% @user.events.each do |event| %>
+        <li class="list-group-item">
+          <p style="float:right;" class="text-muted"><%= event.date %></p>
           <h5><%= link_to event.event_name, event_path(event) %></h5>
-          <p><%= event.location %></p>
-          <p><%= event.date %></p>
+          <p><small><%= event.location %></small></p>
         </li>
       <% end %>
     </ul>
   </div>
 
-  <div class="col-4 m-5">
-    <h2>Upcomming Events</h2>
+  <div class="col-lg">
+    <h4>Upcomming Events</h4>
 
     <ul class="list-group my-4">
       <% @future_events.each do |event| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item">
+          <p style="float:right;" class="text-muted"><%= event.date %></p>
           <h5><%= link_to event.event_name, event_path(event) %></h5>
-          <p><%= event.location %></p>
-          <p><%= event.date %></p>
+          <p><small><%= event.location %></small></p>
         </li>
       <% end %>
     </ul>
-    <h2>Past Events</h2>
+    <h4>Past Events</h4>
 
     <ul class="list-group my-4">
       <% @past_events.each do |event| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item">
+          <p style="float:right;" class="text-muted"><%= event.date %></p>
           <h5><%= link_to event.event_name, event_path(event) %></h5>
-          <p><%= event.location %></p>
-          <p><%= event.date %></p>
+          <p><small><%= event.location %></small></p>
         </li>
       <% end %>
     </ul>
@@ -48,6 +55,6 @@
 
 <div class="row">
   <div class="col">
-  <%= link_to "<< Home", root_path %>
+    <%= link_to "<< Home", root_path %>
   </div>
 </div>

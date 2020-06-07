@@ -8,10 +8,10 @@ class User < ApplicationRecord
   has_many :attended_events, through: :invitations
 
   def future_events
-    self.events.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
+    self.attended_events.where("DATE(date) >= DATE(?)", Time.now).order("date DESC")
   end
 
   def past_events
-    self.events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
+    self.attended_events.where("DATE(date) < DATE(?)", Time.now).order("date DESC")
   end
 end

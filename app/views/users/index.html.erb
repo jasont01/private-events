@@ -1,36 +1,32 @@
-<div class="row p-sm-5">
+<div class="row">
 
-  <div class="col-sm-2 col-xl-5">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus explicabo saepe exercitationem sit molestias dolore quisquam fuga odio odit, quasi, nemo aspernatur provident minima modi quam eum hic neque fugiat voluptatibus.</p>
-  </div>
-  
-  <div class="col-sm-4 col-xl-4">
-    <h2>Upcomming Events</h2>
-
-    <ul class="list-group my-4">
-      <% @future_events.each do |event| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <h5><%= link_to event.event_name, event_path(event) %></h5>
-          <p><%= event.location %></p>
-          <p><%= event.date %></p>
-        </li>
-      <% end %>
-    </ul>
-    <small><%= link_to "All Events", events_path %></small>
+ <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Members</h3>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+      </div>
+    </div>
   </div>
 
-  <div class="col-sm-6 col-xl-3">
+  <div class="col-lg">
 
-    <h2>Members</h2>
-    <ul class="list-group my-4">
+    <ul class="list-group">
       <% @users.each do |user| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= link_to user.username, user_path(user) %>
-          <span class="badge badge-primary badge-pill"><%= user.events.count %></span>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-2">
+              <%= image_tag "round-profile-image-placeholder.png", size: "80x80", class: "img-fluid img-thumbnail" %>
+            </div>
+            <div class="col">
+              <p><%= user.name %></p>
+              <p><%= user.username %></p>
+              <%= link_to "View Profile", user_path(user) %>
+            </div>
+          </div>
         </li>
       <% end %>
     </ul>
 
   </div>
-
 </div>

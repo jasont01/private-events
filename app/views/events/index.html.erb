@@ -1,38 +1,43 @@
-<div class="row p-sm-5">
+<div class="row">
 
-  <div class="col-4">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione praesentium fugiat quas aspernatur atque, aperiam iste assumenda, magnam quasi sed alias minima eveniet expedita minus voluptatibus cupiditate. Officia doloremque, qui laborum voluptates odio perspiciatis officiis? Neque molestiae debitis eaque delectus perferendis officiis dignissimos aliquam aspernatur, iste assumenda, suscipit eos voluptatibus!</p>
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Upcomming Events</h3>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p><%= link_to "Past Events", "/events?past" %></p>
+      </div>
+    </div>
   </div>
 
-  <div class="col-4">
-    <h2>Upcomming Events</h2>
+  <div class="col">
     <% @events.future.each do |event| %>
       <div class="card">
         <div class="card-body">
+          <p style="float:right;" class="text-muted"><%= event.date %></p>
           <h5 class="card-title"><%= link_to event.event_name, event_path(event) %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">created by <%= link_to event.creator.username, user_path(event.creator) %></h6>
-          <p style="float:right;">When: <%= event.date %></p>
-          <p>Location: <%= event.location %></p>
+          <p class="card-subtitle mb-2 text-muted"><small>created by <%= link_to event.creator.username, user_path(event.creator) %></small></p>
+          <p><small><%= event.location %></small></p>
           <p class="card-text"><%= event.description %></p>
-          <a href="#" class="card-link">Sign Up</a>
         </div>
       </div>
     <% end %>
   </div>
-
-  <div class="col-4">
-    <h2>Past Events</h2>
+<!--
+  <div class="col">
+    <h3>Past Events</h3>
     <% @events.past.each do |event| %>
       <div class="card">
         <div class="card-body">
+          <p style="float:right;" class="text-muted"><%= event.date %></p>
           <h5 class="card-title"><%= link_to event.event_name, event_path(event) %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">created by <%= link_to event.creator.username, user_path(event.creator) %></h6>
-          <p style="float:right;">When: <%= event.date %></p>
-          <p>Location: <%= event.location %></p>
+          <p class="card-subtitle mb-2 text-muted"><small>created by <%= link_to event.creator.username, user_path(event.creator) %></small></p>
+          <p><small><%= event.location %></small></p>
           <p class="card-text"><%= event.description %></p>
         </div>
       </div>
     <% end %>
   </div>
-
+-->
 </div>
